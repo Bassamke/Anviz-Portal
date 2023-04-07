@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\HP\Downloads\Matheka\Tests\AnvizWeb\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-04-06T11:01:21.0962534Z;True|2023-04-06T13:41:13.0676393+03:00;False|2023-04-06T13:40:33.3433959+03:00;True|2023-04-06T13:33:48.5529692+03:00;True|2023-04-06T13:11:15.9228441+03:00;True|2023-04-06T13:07:59.1478053+03:00;True|2023-04-06T12:55:03.0835908+03:00;True|2023-04-06T12:45:41.3258293+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

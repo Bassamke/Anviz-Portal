@@ -1,0 +1,74 @@
+﻿@model IEnumerable<AnvizWeb.Models.EmployeePunches>
+
+@{
+    ViewData["Title"] = "getStaffPunches";
+}
+
+
+<h1>STAFF PUNCHES</h1>
+
+<p>
+    <form method="post" enctype="multipart/form-data" asp-controller="Punch" asp-action="getStaffPunches">
+        <table>
+            <tr>
+                <td>Enter Employee Number: </td>
+                <td><input type="text" id="employeenumber" name="employeenumber" /></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+        <hr />
+    </form>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RawPunchTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PunchType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PunchDevice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadedToDayforce)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DayForceResponse)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RawPunchTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PunchType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PunchDevice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UploadedToDayforce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayForceResponse)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

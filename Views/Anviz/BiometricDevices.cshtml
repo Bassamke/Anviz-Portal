@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AnvizWeb.Models.BiometricDevices>
+
+@{
+    ViewData["Title"] = "BiometricDevices";
+}
+
+<h1>BiometricDevices</h1>
+
+<p>
+    <a asp-action="AddDevice">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IPAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastFailDateTime)
+            </th>
+            <th>STATUS</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IPAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastFailDateTime)
+            </td>
+            <td>
+                    @if (item.LastFailDateTime > DateTime.Now.AddMinutes(-30))
+                    {
+                        <p style="color:red">OFFLINE</p>
+                    }
+                    else if (item.LastFailDateTime > DateTime.Now.AddMinutes(-60))
+                    {
+                        <p style="color:yellow">RECENTLY OFFLINE</p>
+                    }
+                    else
+                    {
+                        <p style="color:blue">ONLINE</p>
+                    }
+                </td>
+            <td>
+                    @Html.ActionLink("Edit", "EditDevices", new {  id=item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteDevice", new {  id=item.Id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

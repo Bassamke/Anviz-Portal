@@ -1,0 +1,81 @@
+﻿@model IEnumerable<AnvizWeb.Models.EmployeeData>
+
+@{
+    ViewData["Title"] = "getStaff";
+}
+
+<h1>Staff</h1>
+
+<form method="post" enctype="multipart/form-data" asp-controller="Staff" asp-action="staffDetails">
+    <table>
+        <tr>
+            <td>Enter Employee Number: </td>
+            <td><input type="text" id="employeenumber" name="employeenumber" /></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+    <hr />
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uploaded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OldLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeletedFromOldLocation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uploaded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OldLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeletedFromOldLocation)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "EditStaffStatus", new { employeeNumber=item.EmployeeNumber }) |
+                    @Html.ActionLink("Details", "staffDetails", new {employeeNumber=item.EmployeeNumber })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
